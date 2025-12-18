@@ -35,7 +35,7 @@ ListOfStaticRoutes = Annotated[list[SI], Len(min_length=0)]
 
 class IPTStaticInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base class for the IP Transit Static service.
     """
 
     virtual_circuit: IPTVirtualCircuitBlockInactive
@@ -49,7 +49,7 @@ class IPTStaticInactive(SubscriptionModel, is_base=True):
 
 class IPTStaticProvisioning(IPTStaticInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning class for the IP Transit Static service.
     """
 
     virtual_circuit: IPTVirtualCircuitBlockProvisioning
@@ -58,7 +58,7 @@ class IPTStaticProvisioning(IPTStaticInactive, lifecycle=[SubscriptionLifecycle.
 
 class IPTStatic(IPTStaticProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the IP Transit Static service.
     """
 
     virtual_circuit: IPTVirtualCircuitBlock

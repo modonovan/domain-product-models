@@ -25,7 +25,7 @@ from products.product_blocks.l2vpn_vv_virtual_circuit import (
 
 class L2vpnVVInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the L2VPN VLAN-to-VLAN service type, for use by clients.
     """
 
     virtual_circuit: L2vpnVVVirtualCircuitBlockInactive
@@ -37,7 +37,7 @@ class L2vpnVVInactive(SubscriptionModel, is_base=True):
 
 class L2vpnVVProvisioning(L2vpnVVInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the L2VPN VLAN-to-VLAN service.
     """
 
     virtual_circuit: L2vpnVVVirtualCircuitBlockProvisioning
@@ -45,7 +45,7 @@ class L2vpnVVProvisioning(L2vpnVVInactive, lifecycle=[SubscriptionLifecycle.PROV
 
 class L2vpnVV(L2vpnVVProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the L2VPN VLAN-to-VLAN service.
     """
 
     virtual_circuit: L2vpnVVVirtualCircuitBlock

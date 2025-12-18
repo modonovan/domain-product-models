@@ -43,7 +43,7 @@ ListOfCircuits = Annotated[list[SI], Len(min_length=1, max_length=2)]
 
 class CommodityIPInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the inactive state of the Commodity IP product.
     """
 
     vrrp_config: IPTVRRPConfigInactive
@@ -65,7 +65,7 @@ class CommodityIPInactive(SubscriptionModel, is_base=True):
 
 class CommodityIPProvisioning(CommodityIPInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the Commodity IP product.
     """
 
     vrrp_config: IPTVRRPConfigProvisioning
@@ -76,7 +76,7 @@ class CommodityIPProvisioning(CommodityIPInactive, lifecycle=[SubscriptionLifecy
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the Commodity IP product.
         """
         return "Commodity IP Product"
 
@@ -91,7 +91,7 @@ class CommodityIPProvisioning(CommodityIPInactive, lifecycle=[SubscriptionLifecy
 
 class CommodityIP(CommodityIPProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Commodity IP product.
     """
 
     vrrp_config: IPTVRRPConfig

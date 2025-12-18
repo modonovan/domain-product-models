@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Generic Service Attach Point. Not used at present """
+""" Generic Service Attach Point. Not used at present in the ASIERA products. """
 
 from orchestrator.domain.base import ProductBlockModel
 from orchestrator.types import SubscriptionLifecycle

@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Interface subscription, representing a physical port. Only used by HEAnet """
+""" Interface subscription, representing a physical port. Only used by ASIERA. """
 
 from enum import IntEnum
 
@@ -37,7 +37,7 @@ class CorePortSpeed(IntEnum):
 
 class CorePortInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the inactive state of the Core Port subscription.
     """
 
     speed: CorePortSpeed
@@ -46,7 +46,7 @@ class CorePortInactive(SubscriptionModel, is_base=True):
 
 class CorePortProvisioning(CorePortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the Core Port subscription.
     """
 
     speed: CorePortSpeed
@@ -55,7 +55,7 @@ class CorePortProvisioning(CorePortInactive, lifecycle=[SubscriptionLifecycle.PR
 
 class CorePort(CorePortProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Core Port subscription.
     """
 
     speed: CorePortSpeed

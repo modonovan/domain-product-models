@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" L2VPN SAP, representing a VLAN in Netbox. Used by L2VPN VV, VVTranslation and PV """
+""" L2VPN SAP, representing a VLAN in NetBox. Used by L2VPN VV, VVTranslation and PV """
 
 from orchestrator.types import SubscriptionLifecycle
 from pydantic import computed_field
@@ -32,7 +32,7 @@ from products.product_blocks.lag_port import (
 
 class SAPVVBlockInactive(SAPBlock, product_block_name="SAPVV"):
     """
-    #TODO fill me in
+    This is a SAP Block for L2VPN VV services. It represents a VLAN on a port in NetBox which is in an inactive state.
     """
 
     port: PortBlockInactive | LAGPortBlockInactive | None = None
@@ -43,7 +43,7 @@ class SAPVVBlockInactive(SAPBlock, product_block_name="SAPVV"):
 
 class SAPVVBlockProvisioning(SAPVVBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is a SAP Block for L2VPN VV services. It represents a VLAN on a port in NetBox which is in a provisioning state.
     """
 
     port: PortBlockProvisioning | LAGPortBlockProvisioning
@@ -55,14 +55,14 @@ class SAPVVBlockProvisioning(SAPVVBlockInactive, lifecycle=[SubscriptionLifecycl
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title used in the UI to represent this block
         """
         return f"VLAN {self.vlan} on port {self.port.port_name} on {self.port.node.node_name}"
 
 
 class SAPVVBlock(SAPVVBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is a SAP Block for L2VPN VV services. It represents a VLAN on a port in NetBox which is in an active state.
     """
 
     port: PortBlock | LAGPortBlock

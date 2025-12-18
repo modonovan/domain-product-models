@@ -33,7 +33,7 @@ class L2vpnVVVirtualCircuitBlockInactive(
     ProductBlockModel, product_block_name="L2vpnVVVirtualCircuit"
 ):
     """
-    #TODO fill me in
+    This is the inactive version of the L2VPN VLAN-to-VLAN virtual circuit product block.
     """
 
     saps: ListOfSaps[SAPVVBlockInactive]
@@ -50,7 +50,7 @@ class L2vpnVVVirtualCircuitBlockProvisioning(
     lifecycle=[SubscriptionLifecycle.PROVISIONING],
 ):
     """
-    #TODO fill me in
+    This block represents a L2VPN VLAN-to-VLAN virtual circuit in provisioning state.
     """
 
     saps: ListOfSaps[SAPVVBlockProvisioning]
@@ -65,7 +65,7 @@ class L2vpnVVVirtualCircuitBlockProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title of the L2VPN VV virtual circuit block.
         """
         return (
             f"{self.speed} Mbit/s VV circuit between "
@@ -87,7 +87,7 @@ class L2vpnVVVirtualCircuitBlock(
     lifecycle=[SubscriptionLifecycle.ACTIVE],
 ):
     """
-    #TODO fill me in
+    This block represents a L2VPN VLAN-to-VLAN virtual circuit in active state.
     """
 
     saps: ListOfSaps[SAPVVBlock]

@@ -35,7 +35,7 @@ ListOfBgpRoutes = Annotated[list[SI], Len(min_length=1)]
 
 class IPTeBGPInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base model for IP Transit eBGP service in inactive state.
     """
 
     virtual_circuit: IPTVirtualCircuitBlockInactive
@@ -48,7 +48,7 @@ class IPTeBGPInactive(SubscriptionModel, is_base=True):
 
 class IPTeBGPProvisioning(IPTeBGPInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the IP Transit eBGP service.
     """
 
     virtual_circuit: IPTVirtualCircuitBlockProvisioning
@@ -57,7 +57,7 @@ class IPTeBGPProvisioning(IPTeBGPInactive, lifecycle=[SubscriptionLifecycle.PROV
 
 class IPTeBGP(IPTeBGPProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the IP Transit eBGP service.
     """
 
     virtual_circuit: IPTVirtualCircuitBlock

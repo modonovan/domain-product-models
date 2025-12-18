@@ -72,7 +72,7 @@ class CoreVirtualCircuitBlockProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        This method returns a human-readable title for the Core Virtual Circuit block.
         """
         return "Core VC Block"
 

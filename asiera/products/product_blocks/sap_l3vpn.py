@@ -31,7 +31,7 @@ from products.product_blocks.lag_port import (
 
 class SAPL3VPNBlockInactive(ProductBlockModel, product_block_name="SAPL3VPN"):
     """
-    #TODO fill me in
+    The inactive state of an L3VPN SAP block.
     """
 
     port: PortBlockInactive | LAGPortBlockInactive | None = None
@@ -64,7 +64,7 @@ class SAPL3VPNBlockInactive(ProductBlockModel, product_block_name="SAPL3VPN"):
 
 class SAPL3VPNBlockProvisioning(SAPL3VPNBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    The provisioning state of an L3VPN SAP block.
     """
 
     port: PortBlockProvisioning | LAGPortBlockProvisioning
@@ -93,7 +93,7 @@ class SAPL3VPNBlockProvisioning(SAPL3VPNBlockInactive, lifecycle=[SubscriptionLi
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the L3VPN SAP block.
         """
         # return "L3VPN SAP Block"
         return f"Port {self.port.port_name} on {self.port.node.node_name}"
@@ -101,7 +101,7 @@ class SAPL3VPNBlockProvisioning(SAPL3VPNBlockInactive, lifecycle=[SubscriptionLi
 
 class SAPL3VPNBlock(SAPL3VPNBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    The active state of an L3VPN SAP block.
     """
 
     port: PortBlock | LAGPortBlock

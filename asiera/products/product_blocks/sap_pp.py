@@ -31,7 +31,8 @@ from products.product_blocks.lag_port import (
 
 class SAPPPBlockInactive(ProductBlockModel, product_block_name="SAPPP"):
     """
-    #TODO fill me in
+    This is a SAP (Service Access Point) for a L2VPN Point-to-Point service that is in an inactive state.
+    It represents the termination point of the L2VPN on a specific port or LAG port in the network infrastructure.
     """
 
     port: PortBlockInactive | LAGPortBlockInactive | None = None
@@ -41,7 +42,7 @@ class SAPPPBlockInactive(ProductBlockModel, product_block_name="SAPPP"):
 
 class SAPPPBlockProvisioning(SAPPPBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is a SAP (Service Access Point) for a L2VPN Point-to-Point service that is in the provisioning state.
     """
 
     port: PortBlockProvisioning | LAGPortBlockProvisioning
@@ -52,14 +53,14 @@ class SAPPPBlockProvisioning(SAPPPBlockInactive, lifecycle=[SubscriptionLifecycl
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the L2VPN SAP block.
         """
         return f"Port {self.port.port_name} on {self.port.node.node_name}"
 
 
 class SAPPPBlock(SAPPPBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is a SAP (Service Access Point) for a L2VPN Point-to-Point service that is in the active state.
     """
 
     port: PortBlock | LAGPortBlock

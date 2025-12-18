@@ -12,7 +12,7 @@
 # limitations under the License.
 
 """
-LAG Port, used by LAG Port product and SAP product blocks 
+LAG Port, used by LAG Port product and SAP product blocks
 Any changes made here should be replicated to port product block
 """
 
@@ -31,8 +31,7 @@ from products.product_blocks.node import (
 
 class LAGPortBlockInactive(ProductBlockModel, product_block_name="LAGPort"):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to port product block
+    This is the inactive version of the LAG Port product block.
     """
 
     port_name: str | None = None
@@ -49,8 +48,7 @@ class LAGPortBlockInactive(ProductBlockModel, product_block_name="LAGPort"):
 
 class LAGPortBlockProvisioning(LAGPortBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to port product block
+    This is the provisioning version of the LAG Port product block.
     """
 
     port_name: str
@@ -66,7 +64,7 @@ class LAGPortBlockProvisioning(LAGPortBlockInactive, lifecycle=[SubscriptionLife
 
     def _active_sap_blocks(self) -> List:
         """
-        #TODO fill me in
+        Returns a list of active SAP blocks associated with this LAG Port.
         """
         from products.product_blocks.sap import SAPBlock
 
@@ -97,15 +95,14 @@ class LAGPortBlockProvisioning(LAGPortBlockInactive, lifecycle=[SubscriptionLife
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the LAG Port block.
         """
         return f"LAG port {self.port_name} on {self.node.node_name}"
 
 
 class LAGPortBlock(LAGPortBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to port product block
+    This is the active version of the LAG Port product block.
     """
 
     port_name: str

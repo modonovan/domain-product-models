@@ -1,7 +1,7 @@
 
 """
 L3VPN service, for use by clients
-Currently only used for Educampus and Gov't Networks
+Currently only used in ASIERA for two specific use cases but it can be expanded to other use cases in the future and is ready for that.
 """
 from typing import Annotated
 from annotated_types import Len
@@ -25,7 +25,7 @@ ListOfSaps = Annotated[list[SI], Len(min_length=0)]
 
 class L3vpnInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+
     """
 
     l3vpn_config: L3VPNConfigInactive
@@ -38,7 +38,7 @@ class L3vpnInactive(SubscriptionModel, is_base=True):
 
 class L3vpnProvisioning(L3vpnInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the L3VPN service.
     """
 
     l3vpn_config: L3VPNConfigProvisioning
@@ -47,9 +47,8 @@ class L3vpnProvisioning(L3vpnInactive, lifecycle=[SubscriptionLifecycle.PROVISIO
 
 class L3vpn(L3vpnProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the L3VPN service.
     """
 
     l3vpn_config: L3VPNConfig
     saps: ListOfSaps[SAPL3VPNBlock]
- 

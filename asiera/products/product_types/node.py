@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Device subscription, representing a router or switch. Only used by HEAnet """
+""" Device subscription, representing a router, switch or firewall. Only used by ASIERA. """
 
 from orchestrator.domain.base import SubscriptionModel
 from orchestrator.types import SubscriptionLifecycle, strEnum
@@ -25,7 +25,8 @@ from products.product_blocks.node import (
 
 class NodeType(strEnum):
     """
-    #TODO fill me in
+    Node type for the Node service.
+    Currently ASIERA only supports Juniper and Arista devices as these are the device types deployed on the network.
     """
 
     Juniper = "Juniper"
@@ -34,7 +35,7 @@ class NodeType(strEnum):
 
 class NodeInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base class for Node subscriptions in an inactive state.
     """
 
     node_type: NodeType
@@ -43,7 +44,7 @@ class NodeInactive(SubscriptionModel, is_base=True):
 
 class NodeProvisioning(NodeInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the Node service.
     """
 
     node_type: NodeType
@@ -62,7 +63,7 @@ class NodeProvisioning(NodeInactive, lifecycle=[SubscriptionLifecycle.PROVISIONI
 
 class Node(NodeProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Node service.
     """
 
     node_type: NodeType

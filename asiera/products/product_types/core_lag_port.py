@@ -11,7 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Interface subscription, representing a physical port. Only used by HEAnet """
+"""
+Link Aggregation Group (LAG) Interface subscription, representing a bonded/bundled interface. Only used by Core Links.
+In ASIERA, we designate the various LAG products depending on whether they are CLIENT ports or CORE/UPLINK ports. A client LAG port
+is configured in the lag_port.py product type. This product type is specifically for CORE LAG ports and by definition all ASIERA ports.
+"""
 
 from typing import Annotated
 from annotated_types import Len
@@ -35,7 +39,7 @@ ListOfChildPorts = Annotated[list[SI], Len(min_length=0)]
 
 class CoreLAGPortInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+        This is the function/class for Core LAG Port subscriptions in an INACTIVE lifecycle state.
     """
 
     port: CoreLAGPortBlockInactive
@@ -51,9 +55,11 @@ class CoreLAGPortInactive(SubscriptionModel, is_base=True):
         return speed
 
 
-class CoreLAGPortProvisioning(CoreLAGPortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
+class CoreLAGPortProvisioning(
+    CoreLAGPortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]
+):
     """
-    #TODO fill me in
+    This is the provisioning state of the Core LAG Port subscription.
     """
 
     port: CoreLAGPortBlockProvisioning
@@ -62,7 +68,7 @@ class CoreLAGPortProvisioning(CoreLAGPortInactive, lifecycle=[SubscriptionLifecy
 
 class CoreLAGPort(CoreLAGPortProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Core LAG Port subscription.
     """
 
     port: CoreLAGPortBlock

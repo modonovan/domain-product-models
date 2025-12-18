@@ -25,7 +25,7 @@ from products.product_blocks.l2vpn_vv_translation_virtual_circuit import (
 
 class L2vpnVVTranslationInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base class for L2VPN VLAN-to-VLAN Translation services.
     """
 
     virtual_circuit: L2vpnVVTranslationVirtualCircuitBlockInactive
@@ -39,7 +39,7 @@ class L2vpnVVTranslationProvisioning(
     L2vpnVVTranslationInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]
 ):
     """
-    #TODO fill me in
+    This is the provisioning state of the L2VPN VLAN-to-VLAN Translation service.
     """
 
     virtual_circuit: L2vpnVVTranslationVirtualCircuitBlockProvisioning
@@ -47,7 +47,7 @@ class L2vpnVVTranslationProvisioning(
 
 class L2vpnVVTranslation(L2vpnVVTranslationProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the L2VPN VLAN-to-VLAN Translation service.
     """
 
     virtual_circuit: L2vpnVVTranslationVirtualCircuitBlock

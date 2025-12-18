@@ -5,6 +5,7 @@ from orchestrator.types import SubscriptionLifecycle
 
 from products.product_blocks.ip_prefix import IpPrefixBlock, IpPrefixBlockInactive, IpPrefixBlockProvisioning
 
+""" IP Prefix subscription. This subscription type is used to manage IP prefixes by the LIR. """
 
 class AddressFamily(StrEnum):
     IPv4 = "IPv4"

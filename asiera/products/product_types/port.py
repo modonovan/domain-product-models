@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Interface subscription, representing a physical port. Only used by HEAnet """
+"""Interface subscription, representing a physical port. A port subscription can be either a client subscription or a provider (ASIERA) subscription."""
 
 from enum import IntEnum
 
@@ -39,7 +39,7 @@ class PortSpeed(IntEnum):
 
 class PortInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the inactive state of the Port service.
     """
 
     speed: PortSpeed
@@ -48,7 +48,7 @@ class PortInactive(SubscriptionModel, is_base=True):
 
 class PortProvisioning(PortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the Port service.
     """
 
     description: str
@@ -58,7 +58,7 @@ class PortProvisioning(PortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONI
 
 class Port(PortProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Port service.
     """
 
     speed: PortSpeed

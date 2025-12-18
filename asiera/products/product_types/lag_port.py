@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Interface subscription, representing a LAG port. Only used by HEAnet """
+""" Interface subscription, representing a LAG port. This iteration of the LAG product type is for client facing LAGs only. """
 
 from typing import Annotated
 from annotated_types import Len
@@ -34,7 +34,7 @@ ListOfChildPorts = Annotated[list[SI], Len(min_length=0)]
 
 class LAGPortInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the inactive state of the LAG Port service.
     """
 
     port: LAGPortBlockInactive
@@ -52,7 +52,7 @@ class LAGPortInactive(SubscriptionModel, is_base=True):
 
 class LAGPortProvisioning(LAGPortInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the LAG Port service.
     """
 
     port: LAGPortBlockProvisioning
@@ -61,7 +61,7 @@ class LAGPortProvisioning(LAGPortInactive, lifecycle=[SubscriptionLifecycle.PROV
 
 class LAGPort(LAGPortProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+   This is the active state of the LAG Port service.
     """
 
     port: LAGPortBlock

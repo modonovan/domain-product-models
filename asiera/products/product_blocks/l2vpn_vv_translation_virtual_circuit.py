@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" L2VPN virtual circuit, used by L2VPN VLAN-to-VLAN with Translation """
+"""L2VPN virtual circuit, used by L2VPN VLAN-to-VLAN with Translation"""
 
 from typing import Annotated
 
@@ -33,7 +33,7 @@ class L2vpnVVTranslationVirtualCircuitBlockInactive(
     ProductBlockModel, product_block_name="L2vpnVVTranslationVirtualCircuit"
 ):
     """
-    #TODO fill me in
+    This is an L2VPN VV Translation Virtual Circuit Block representing a virtual circuit in NetBox in an inactive state.
     """
 
     sap_a: SAPVVBlockInactive
@@ -51,7 +51,7 @@ class L2vpnVVTranslationVirtualCircuitBlockProvisioning(
     lifecycle=[SubscriptionLifecycle.PROVISIONING],
 ):
     """
-    #TODO fill me in
+    This is an L2VPN VV Translation Virtual Circuit Block representing a virtual circuit in NetBox in a provisioning state.
     """
 
     sap_a: SAPVVBlockProvisioning
@@ -67,7 +67,7 @@ class L2vpnVVTranslationVirtualCircuitBlockProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title used in the UI to represent this block
         """
         return (
             f"{self.speed} Mbit/s VV with translation circuit between "
@@ -81,7 +81,7 @@ class L2vpnVVTranslationVirtualCircuitBlock(
     lifecycle=[SubscriptionLifecycle.ACTIVE],
 ):
     """
-    #TODO fill me in
+    This is an L2VPN VV Translation Virtual Circuit Block representing a virtual circuit in NetBox in an active state.
     """
 
     sap_a: SAPVVBlock

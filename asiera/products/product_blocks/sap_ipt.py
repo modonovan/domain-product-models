@@ -32,7 +32,7 @@ from products.product_blocks.lag_port import (
 
 class SAPIPTBlockInactive(ProductBlockModel, product_block_name="SAPIPT"):
     """
-    #TODO fill me in
+    This is the inactive state of the IPT SAP Block
     """
 
     port: PortBlockInactive | LAGPortBlockInactive | None = None
@@ -45,7 +45,7 @@ class SAPIPTBlockInactive(ProductBlockModel, product_block_name="SAPIPT"):
 
 class SAPIPTBlockProvisioning(SAPIPTBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the IPT SAP Block
     """
 
     port: PortBlockProvisioning | LAGPortBlockProvisioning
@@ -59,7 +59,7 @@ class SAPIPTBlockProvisioning(SAPIPTBlockInactive, lifecycle=[SubscriptionLifecy
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the IPT SAP block.
         """
         # return "IPT SAP Block"
         return f"Port {self.port.port_name} on {self.port.node.node_name}"
@@ -68,7 +68,7 @@ class SAPIPTBlockProvisioning(SAPIPTBlockInactive, lifecycle=[SubscriptionLifecy
     @property
     def ipv6_linklocal_addr(self) -> str:
         """
-        #TODO generate link local v6 address from vrrp_vip_ipv6_addr
+        This generates a link local v6 address from ipv6_ipam_id. This is needed for VRRP.
         """
         # example if v6 addr is 2001:770:50::4/64
         # should return fe80::770:50:4/64
@@ -80,7 +80,7 @@ class SAPIPTBlockProvisioning(SAPIPTBlockInactive, lifecycle=[SubscriptionLifecy
 
 class SAPIPTBlock(SAPIPTBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the IPT SAP Block
     """
 
     port: PortBlock | LAGPortBlock
@@ -94,7 +94,7 @@ class SAPIPTBlock(SAPIPTBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTI
     @property
     def ipv6_linklocal_addr(self) -> str:
         """
-        #TODO generate link local v6 address from vrrp_vip_ipv6_addr
+        This generates a link local v6 address from ipv6_ipam_id. This is needed for VRRP.
         """
         # example if v6 addr is 2001:770:50::4/64
         # should return fe80::770:50:4/64

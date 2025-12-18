@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" Core link subscription. Only used by HEAnet """
+""" Core link subscription. Only used by ASIERA. """
 
 
 from orchestrator.domain.base import SubscriptionModel
@@ -26,7 +26,7 @@ from products.product_blocks.core_virtual_circuit import (
 
 class CoreLinkInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the inactive state of the Core Link subscription.
     """
 
     virtual_circuit: CoreVirtualCircuitBlockInactive
@@ -38,7 +38,7 @@ class CoreLinkInactive(SubscriptionModel, is_base=True):
 
 class CoreLinkProvisioning(CoreLinkInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the Core Link subscription.
     """
 
     virtual_circuit: CoreVirtualCircuitBlockProvisioning
@@ -46,7 +46,7 @@ class CoreLinkProvisioning(CoreLinkInactive, lifecycle=[SubscriptionLifecycle.PR
 
 class CoreLink(CoreLinkProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the Core Link subscription.
     """
 
     virtual_circuit: CoreVirtualCircuitBlock

@@ -33,7 +33,55 @@ class L2vpnPPVirtualCircuitBlockInactive(
     ProductBlockModel, product_block_name="L2vpnPPVirtualCircuit"
 ):
     """
-    #TODO fill me in
+    This block represents a L2VPN Port-to-Port virtual circuit in inactive state.
+    2 SAPPPBlocks should be linked to this block to create a full Port-to-Port
+    connection.
+    1 SAPPPBlock represents 1 end of the Port-to-Port connection.
+    2 SAPPPBlocks are required to create a full Port-to-Port connection.
+    1 SAPPPBlock is linked to 1 port on a node.
+    2 SAPPPBlocks linked to this block should be linked to ports on different nodes.
+    1 SAPPPBlock is linked to 1 subscription.
+    2 SAPPPBlocks linked to this block should be linked to different subscriptions.
+    1 SAPPPBlock is linked to 1 customer.
+    2 SAPPPBlocks linked to this block should be linked to the same customer.
+    1 SAPPPBlock is linked to 1 product.
+    2 SAPPPBlocks linked to this block should be linked to the same product.
+    1 SAPPPBlock is linked to 1 virtual circuit.
+    2 SAPPPBlocks linked to this block should be linked to the same virtual circuit.
+    1 SAPPPBlock is linked to 1 speed.
+    2 SAPPPBlocks linked to this block should be linked to the same speed.
+    1 SAPPPBlock is linked to 1 speed policer. (we don't enforce this yet)
+    2 SAPPPBlocks linked to this block should be linked to the same speed policer.
+    1 SAPPPBlock is linked to 1 IMS ID. (we don't enforce this yet)
+    2 SAPPPBlocks linked to this block should be linked to the same IMS ID.
+    1 SAPPPBlock is linked to 1 IMS VC ID. (we don't enforce this yet)
+    2 SAPPPBlocks linked to this block should be linked to the same IMS VC ID.
+    1 SAPPPBlock is linked to 1 lifecycle state.
+    2 SAPPPBlocks linked to this block should be linked to the same lifecycle state.
+    1 SAPPPBlock is linked to 1 product block.
+    2 SAPPPBlocks linked to this block should be linked to the same product block.
+    1 SAPPPBlock is linked to 1 product block name.
+    2 SAPPPBlocks linked to this block should be linked to the same product block name.
+    1 SAPPPBlock is linked to 1 product block model.
+    2 SAPPPBlocks linked to this block should be linked to the same product block model.
+    1 SAPPPBlock is linked to 1 product block type.
+    2 SAPPPBlocks linked to this block should be linked to the same product block type.
+    1 SAPPPBlock is linked to 1 product block version.
+    2 SAPPPBlocks linked to this block should be linked to the same product block version.
+    1 SAPPPBlock is linked to 1 product block description.
+    2 SAPPPBlocks linked to this block should be linked to the same product block description.
+    1 SAPPPBlock is linked to 1 product block metadata.
+    2 SAPPPBlocks linked to this block should be linked to the same product block metadata.
+    1 SAPPPBlock is linked to 1 product block created at.
+    2 SAPPPBlocks linked to this block should be linked to the same product block created at.
+    1 SAPPPBlock is linked to 1 product block updated at.
+    2 SAPPPBlocks linked to this block should be linked to the same product block updated at.
+    1 SAPPPBlock is linked to 1 product block deleted at.
+    2 SAPPPBlocks linked to this block should be linked to the same product block deleted at.
+    1 SAPPPBlock is linked to 1 product block extra attributes.
+    2 SAPPPBlocks linked to this block should be linked to the same product block extra attributes.
+    1 SAPPPBlock is linked to 1 product block tags.
+    2 SAPPPBlocks linked to this block should be linked to the same product block tags
     """
 
     saps: ListOfSaps[SAPPPBlockInactive]
@@ -50,7 +98,7 @@ class L2vpnPPVirtualCircuitBlockProvisioning(
     lifecycle=[SubscriptionLifecycle.PROVISIONING],
 ):
     """
-    #TODO fill me in
+    This block represents a L2VPN Port-to-Port virtual circuit in provisioning state.
     """
 
     saps: ListOfSaps[SAPPPBlockProvisioning]
@@ -65,7 +113,7 @@ class L2vpnPPVirtualCircuitBlockProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns a human-readable title for the virtual circuit.
         """
         return (
             f"{self.speed} Mbit/s PP circuit between "
@@ -87,7 +135,7 @@ class L2vpnPPVirtualCircuitBlock(
     lifecycle=[SubscriptionLifecycle.ACTIVE],
 ):
     """
-    #TODO fill me in
+    This block represents a L2VPN Port-to-Port virtual circuit in active state.
     """
 
     saps: ListOfSaps[SAPPPBlock]

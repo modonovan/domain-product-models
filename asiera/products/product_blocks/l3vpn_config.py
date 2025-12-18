@@ -20,14 +20,14 @@ from pydantic import computed_field
 
 class L3VPNConfigInactive(ProductBlockModel, product_block_name="L3VPNConfig"):
     """
-    #TODO fill me in
+    This is an L3VPN Config Block representing L3VPN configuration in NetBox in an inactive state.
     """
 
     l3vpn_name: str | None = None
     l3vpn_instance: str | None = None
     vrf_id: int | None = None
     route_distinguisher: str | None = None
-    # ID for Netbox plugins/bgp/community
+    # ID for NetBox plugins/bgp/community - In our NetBox instance we have installed a plugin that manages route targets as communities.
     hub_route_target_id: int | None = None
     spoke_route_target_id: int | None = None
 
@@ -37,7 +37,7 @@ class L3VPNConfigProvisioning(
     lifecycle=[SubscriptionLifecycle.PROVISIONING],
 ):
     """
-    #TODO fill me in
+    This is an L3VPN Config Block representing L3VPN configuration in NetBox in a provisioning state.
     """
 
     l3vpn_name: str | None = None
@@ -53,7 +53,7 @@ class L3VPNConfigProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title used in the UI to represent this block
         """
         return "L3VPN Config Block"
 
@@ -63,7 +63,7 @@ class L3VPNConfig(
     lifecycle=[SubscriptionLifecycle.ACTIVE],
 ):
     """
-    #TODO fill me in
+    This is an L3VPN Config Block representing L3VPN configuration in NetBox in an active state.
     """
 
     l3vpn_name: str

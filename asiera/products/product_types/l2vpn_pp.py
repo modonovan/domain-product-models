@@ -25,7 +25,7 @@ from products.product_blocks.l2vpn_pp_virtual_circuit import (
 
 class L2vpnPPInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base model for L2VPN Port-to-Port service subscriptions.
     """
 
     virtual_circuit: L2vpnPPVirtualCircuitBlockInactive
@@ -37,7 +37,7 @@ class L2vpnPPInactive(SubscriptionModel, is_base=True):
 
 class L2vpnPPProvisioning(L2vpnPPInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the L2VPN Port-to-Port service.
     """
 
     virtual_circuit: L2vpnPPVirtualCircuitBlockProvisioning
@@ -45,7 +45,7 @@ class L2vpnPPProvisioning(L2vpnPPInactive, lifecycle=[SubscriptionLifecycle.PROV
 
 class L2vpnPP(L2vpnPPProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the L2VPN Port-to-Port service.
     """
 
     virtual_circuit: L2vpnPPVirtualCircuitBlock

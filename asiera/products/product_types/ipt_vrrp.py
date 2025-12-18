@@ -37,7 +37,7 @@ ListOfCircuits = Annotated[list[SI], Len(min_length=1, max_length=2)]
 
 class IPTVRRPInactive(SubscriptionModel, is_base=True):
     """
-    #TODO fill me in
+    This is the base model for IPT VRRP services.
     """
 
     vrrp_config: IPTVRRPConfigInactive
@@ -58,7 +58,7 @@ class IPTVRRPInactive(SubscriptionModel, is_base=True):
 
 class IPTVRRPProvisioning(IPTVRRPInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
+    This is the provisioning state of the IPT VRRP service.
     """
 
     vrrp_config: IPTVRRPConfigProvisioning
@@ -68,7 +68,7 @@ class IPTVRRPProvisioning(IPTVRRPInactive, lifecycle=[SubscriptionLifecycle.PROV
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Returns the title of the IPT VRRP service.
         """
         return "IPT VRRP Block"
 
@@ -83,7 +83,7 @@ class IPTVRRPProvisioning(IPTVRRPInactive, lifecycle=[SubscriptionLifecycle.PROV
 
 class IPTVRRP(IPTVRRPProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
+    This is the active state of the IPT VRRP service.
     """
 
     vrrp_config: IPTVRRPConfig

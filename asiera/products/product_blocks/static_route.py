@@ -20,7 +20,7 @@ from pydantic import computed_field
 
 class StaticRouteBlockInactive(ProductBlockModel, product_block_name="StaticRoute"):
     """
-    #TODO fill me in
+    This is a Static Route Block representing a static route in NetBox in an inactive state.
     """
 
     # Draft product block for STATIC_ROUTE
@@ -37,7 +37,7 @@ class StaticRouteBlockProvisioning(
     lifecycle=[SubscriptionLifecycle.PROVISIONING],
 ):
     """
-    #TODO fill me in
+    This is a Static Route Block representing a static route in NetBox in a provisioning state.
     """
 
     ims_prefix_id: int | None = None
@@ -48,7 +48,7 @@ class StaticRouteBlockProvisioning(
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title used in the UI to represent this block
         """
         return "IPT Static Route"
 
@@ -58,7 +58,7 @@ class StaticRouteBlock(
     lifecycle=[SubscriptionLifecycle.ACTIVE],
 ):
     """
-    #TODO fill me in
+    This is a Static Route Block representing a static route in NetBox in an active state.
     """
 
     ims_prefix_id: int

@@ -41,8 +41,7 @@ class PortMode(strEnum):
 
 class PortBlockInactive(ProductBlockModel, product_block_name="Port"):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to LAG port product block
+    This is a Port Block representing a port in NetBox in an inactive state.
     """
 
     port_name: str | None = None
@@ -59,8 +58,7 @@ class PortBlockInactive(ProductBlockModel, product_block_name="Port"):
 
 class PortBlockProvisioning(PortBlockInactive, lifecycle=[SubscriptionLifecycle.PROVISIONING]):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to LAG port product block
+    This is a Port Block representing a port in NetBox in a provisioning state.
     """
 
     port_name: str
@@ -76,7 +74,7 @@ class PortBlockProvisioning(PortBlockInactive, lifecycle=[SubscriptionLifecycle.
 
     def _active_sap_blocks(self) -> List:
         """
-        #TODO fill me in
+
         """
         from products.product_blocks.sap import SAPBlock
 
@@ -107,15 +105,14 @@ class PortBlockProvisioning(PortBlockInactive, lifecycle=[SubscriptionLifecycle.
     @property
     def title(self) -> str:
         """
-        #TODO fill me in
+        Title used in the UI to represent this block
         """
         return f"port {self.port_name} on {self.node.node_name}"
 
 
 class PortBlock(PortBlockProvisioning, lifecycle=[SubscriptionLifecycle.ACTIVE]):
     """
-    #TODO fill me in
-    Any changes made here should be replicated to LAG port product block
+    This is a Port Block representing a port in NetBox in an active state.
     """
 
     port_name: str
