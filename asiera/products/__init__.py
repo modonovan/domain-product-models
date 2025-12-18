@@ -11,7 +11,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-""" #TODO module string """
+"""This module registers all Asiera product types in the orchestrator's
+subscription model registry. Workflow Orchestrator uses this registry to map
+product type names to their corresponding classes. Without this registration,
+the orchestrator would not be able to recognise or manage these product types and
+thus would not be able to handle subscriptions related to them. No registration
+means no building a workflow for them.
+"""
 
 from orchestrator.domain import SUBSCRIPTION_MODEL_REGISTRY
 
